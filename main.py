@@ -1,3 +1,18 @@
+import sys
+import os
+
+# Ajusta o diretório de trabalho para funcionar tanto no .exe (one file) quanto no script
+if getattr(sys, 'frozen', False):
+    # Rodando como executável empacotado (PyInstaller --onefile)
+    base_path = sys._MEIPASS
+else:
+    # Rodando como script normal
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+os.chdir(base_path)
+
+
+
 import textwrap
 from PPlay.window import *
 from PPlay.sprite import *
